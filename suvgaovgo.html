@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quang-Hieu (Hanson) Ngo — Power System Engineer, PhD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a1128;
+    --bg-panel: #101a3a;
+    --grid-line: rgba(96, 165, 250, 0.07);
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --signal: #60a5fa;
+    --signal-dim: rgba(96, 165, 250, 0.15);
+    --circuit: #38bdf8;
+    --warn: #fb923c;
+    --border: rgba(226, 232, 240, 0.12);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 56px 56px;
+  
+    }
+
+    nav {
+      position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    background: rgba(10, 17, 40, 0.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {  color: var(--signal); }
+
+    .hero {
+      min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 0 48px;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 100%; }
+
+    .hero-image {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-image img {
+      width: 420px;
+      max-width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+        padding-bottom: 48px;
+      }
+      .hero-image {
+        order: -1;
+      }
+      .hero-image img {
+        width: 260px;
+      }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--signal);
+      letter-spacing: 0.14em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--text-dim);
+      max-width: 560px;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--signal);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s;
+    }
+
+    .social-link:hover { opacity: 0.65; }
+    .social-link svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.65rem 1.4rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.01em;
+      background: var(--signal);
+      color: #0a1128;
+      border: 1px solid var(--signal);
+    }
+
+    .btn:hover { background: #93c5fd; border-color: #93c5fd; }
+
+    section {
+      padding: 5rem 3rem;
+      max-width: 900px;
+      margin: 0;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+    }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0 3rem; }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .expertise-card { background: var(--bg-panel); padding: 1.75rem; transition: background 0.2s; }
+    .expertise-card:hover { background: rgba(96, 165, 250, 0.06); }
+
+    .expertise-icon {
+      width: 36px; height: 36px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .expertise-icon svg {
+      width: 18px; height: 18px;
+      stroke: var(--signal); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .expertise-card h3 {
+      font-family: var(--font-display);
+      font-size: 0.95rem; font-weight: 500;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+
+    .expertise-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+
+    .topics-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+    .topic-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+      background: var(--bg-panel);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .topic-tag:hover { background: var(--signal); color: #0a1128; border-color: var(--signal); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.04em; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.85rem; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--signal); }
+
+    .about-text { color: var(--text-dim); font-size: 1rem; line-height: 1.85; max-width: 680px; }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    /* FIX: hiệu ứng fade-in khi cuộn tới */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero { padding: 7rem 1.5rem 4rem; flex-direction: column; }
+      section { padding: 4rem 1.5rem; }
+      .divider { margin: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      .social-links { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Power System Engineer, Ph.D.</p>
+      <h1>Quang-Ha (Hanson) Ngo</h1>
+      <p class="hero-title">Engineering at the intersection of power systems, AI, and data centers</p>
+      <p class="hero-bio">
+        I work on grid-scale interconnection, dynamic simulation, and protection engineering —
+        and write about the ideas, tools, and problems I encounter along the way.
+      </p>
+      <div class="social-links">
+        <a class="social-link" href="mailto:quanghango1998@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+          </svg>
+          quanghango1998@gmail.com
+        </a>
+        <a class="social-link" href="https://scholar.google.com/citations?user=ZR65deoAAAAJ&hl=en" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Google Scholar
+        </a>
+        <a class="social-link" href="https://www.researchgate.net/profile/Quang-Ha-Ngo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17">
+            <path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM13.5 7.5h1.875A1.875 1.875 0 0 1 17.25 9.375v.375a1.875 1.875 0 0 1-1.875 1.875H13.5V7.5zm0 9H12v-4.5h1.5c1.657 0 3 .895 3 2.25S15.157 16.5 13.5 16.5zm-4.5 0H7.5V7.5H9v9z"/>
+          </svg>
+          ResearchGate
+        </a>
+        <a class="social-link" href="https://www.linkedin.com/in/quang-ha-ngo-18a729172/" target="_blank" rel="noopener">
+          <svg viewBox="0 2 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+      <a class="btn" href="#about">Learn more</a>
+    </div>
+    <div class="hero-image">
+      <img src="bc6d09b4-e737-4851-833c-fec31e191e5b.jpg" alt="Quang-Ha (Hanson) Ngo">
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- FIX: thêm class "reveal" để phần này có fade-in khi cuộn tới -->
+  <section id="about" class="reveal">
+    <h2>Background</h2>
+    <p class="about-text">
+      I am a <strong>power systems engineer</strong> with a Ph.D., currently working on
+      grid interconnection studies, inverter-based resource (IBR) modeling, and protection engineering
+      for utility-scale projects. My day-to-day spans PSS/E dynamic simulations, BESS integration,
+      relay settings, and harmonic analysis — mostly within the <strong>ERCOT</strong> framework.
+    </p>
+    <p class="about-text" style="margin-top: 1rem;">
+      This site is my learning journal: a place to document what I am figuring out, share useful
+      frameworks, and connect with others working on hard problems in the energy and data infrastructure space.
+    </p>
+  </section>
+
+  <hr class="divider">
+
+  <section id="expertise" class="reveal">
+    <h2>Expertise</h2>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <div class="expertise-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Power Systems & Grid Studies</h3>
+        <p>Interconnection studies, dynamic simulation, voltage stability, and frequency response using PSS/E and PSCAD.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h3>BESS & IBR Modeling</h3>
+        <p>Grid-forming and grid-following inverter modeling, MQT compliance testing, and LVRT/HVRT analysis for utility-scale storage.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <h3>Data Centers & Load Modeling</h3>
+        <p>CMPLDW2 / CMPLDWBLU composite load parameterization, PERC1 electronic load models, and large-load interconnection studies.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Protection Engineering</h3>
+        <p>Relay settings for transformer and feeder protection (SEL-751, SEL-351, SEL-487E), coordination studies, and IBR-specific challenges.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Simulation & Automation</h3>
+        <p>Python scripting for PSS/E and PSCAD automation, harmonic study workflows, and data processing pipelines.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <h3>AI & Machine Learning</h3>
+        <p>Exploring applications of AI tools and machine learning in power system analysis, forecasting, and engineering workflows.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="reveal">
+    <h2>Areas of Interest</h2>
+    <div class="topics-row">
+      <span class="topic-tag">Power Systems</span>
+      <span class="topic-tag">ERCOT</span>
+      <span class="topic-tag">BESS / Storage</span>
+      <span class="topic-tag">Inverter-Based Resources</span>
+      <span class="topic-tag">Data Centers</span>
+      <span class="topic-tag">Relay Protection</span>
+      <span class="topic-tag">Dynamic Simulation</span>
+      <span class="topic-tag">Harmonic Analysis</span>
+      <span class="topic-tag">Python & Automation</span>
+      <span class="topic-tag">AI in Engineering</span>
+      <span class="topic-tag">Grid Interconnection</span>
+      <span class="topic-tag">PSS/E · PSCAD</span>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="contact" class="reveal">
+    <h2>Contact</h2>
+    <p style="color: var(--text-dim); max-width: 500px; margin-bottom: 2rem; line-height: 1.8;">
+      Open to conversations about power systems, grid-scale projects, research collaborations,
+      or just swapping notes on interesting engineering problems.
+    </p>
+    <div class="social-links">
+      <a class="social-link" href="mailto:quanghango1998@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+        </svg>
+        quanghango1998@gmail.com
+      </a>
+      <a class="social-link" href="https://scholar.google.com/citations?user=ZR65deoAAAAJ&hl=en" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Google Scholar
+      </a>
+      <a class="social-link" href="https://www.linkedin.com/in/quang-ha-ngo-18a729172/" target="_blank" rel="noopener">
+        <svg viewBox="0 2 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-left">© 2026 Quang-Ha (Hanson) Ngo</span>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="blog.html">Blog</a>
+      <a href="mailto:quanghango1998@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // ---------- Scroll reveal ----------
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>

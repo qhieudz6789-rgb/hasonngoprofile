@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog — Quang-Ha (Hanson) Ngo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #FFFFFF;
+      --bg-subtle:    #F5F5F5;
+      --navy:         #1A4F9C;
+      --text:         #000000;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1.25rem 3rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #000;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); font-weight: 500; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 8rem 3rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      border-bottom: 1px solid #000;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    /* POST LIST */
+    .post-list {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .post-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid #000;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+
+    .post-item:hover .post-title { color: var(--navy); }
+
+    .post-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      padding-top: 0.3rem;
+    }
+
+    .post-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .post-excerpt {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+    }
+
+    .post-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 0.15rem 0.55rem;
+      letter-spacing: 0.04em;
+    }
+
+    footer {
+      border-top: 1px solid #000;
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .footer-left { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text); letter-spacing: 0.04em; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.85rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--navy); }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .page-header { padding: 7rem 1.5rem 2rem; }
+      .post-list { padding: 0 1.5rem; }
+      .post-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="index.html#expertise">Expertise</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>Blog</h1>
+    <p>Notes on power systems, simulation, protection engineering, and AI.</p>
+  </div>
+
+  <div class="post-list">
+
+    <!-- FIX: href đổi từ "#" sang file trang chi tiết thật -->
+    <a class="post-item" href="gfm-vs-gfl.html">
+      <span class="post-date">Jun 2026</span>
+      <div>
+        <p class="post-title">GFM vs. GFL in BESS deployments — what actually differs</p>
+        <p class="post-excerpt">Breaking down grid-forming and grid-following control modes and what they mean in the context of real interconnection studies.</p>
+        <span class="post-tag">BESS</span>
+      </div>
+    </a>
+
+    <a class="post-item" href="#">
+      <span class="post-date">May 2026</span>
+      <div>
+        <p class="post-title">CMPLDW2 vs. CMPLDWBLU — navigating ERCOT composite load models</p>
+        <p class="post-excerpt">A practitioner's comparison of two commonly confused dynamic load models and how to parameterize them correctly.</p>
+        <span class="post-tag">Load Modeling</span>
+      </div>
+    </a>
+
+    <a class="post-item" href="#">
+      <span class="post-date">Apr 2026</span>
+      <div>
+        <p class="post-title">Why transformer protection relay settings are harder than they look</p>
+        <p class="post-excerpt">Inrush, 2nd harmonic blocking, and the constraint windows that make pick-up rules non-trivial.</p>
+        <span class="post-tag">Protection</span>
+      </div>
+    </a>
+
+    <a class="post-item" href="#">
+      <span class="post-date">Mar 2026</span>
+      <div>
+        <p class="post-title">Automating PSCAD harmonic scans with Python</p>
+        <p class="post-excerpt">Workflow notes on using the PSCAD Automation API to batch-process harmonic study outputs.</p>
+        <span class="post-tag">Automation</span>
+      </div>
+    </a>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">© 2026 Quang-Ha (Hanson) Ngo</span>
+    <div class="footer-links">
+      <a href="index.html">About</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="blog.html">Blog</a>
+      <a href="mailto:quanghango1998@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>
