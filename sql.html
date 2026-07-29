@@ -188,50 +188,33 @@
 
   <div class="post-body">
 
+    <h2>What is Structured Query Language?</h2>
     <p>
-      Transformer differential and overcurrent protection settings look straightforward on paper —
-      pick a pickup current, apply a time-current curve, done. In practice, a handful of transformer-specific
-      phenomena make the settings process considerably more nuanced than protecting a simple feeder.
+      Structured Query Language (SQL) is a domain-specific, standardized programming language used to interact with relational database management systems (RDBMS) such as MySQL, SQL Server, IBM Db2, PostgreSQL and Oracle Database.
+      SQL queries (also known as SQL commands or SQL statements) allow users to easily add, retrieve, update, delete, aggregate and otherwise manage data in a relational database (or SQL database). In these systems, structured data is ordered into rows and columns, which together form tables. Data is typically structured across multiple related tables that can be linked using primary or foreign keys.
+      Unlike other programming languages, SQL is a declarative language, which means it describes what the user wants the computer to do rather than how to achieve it. This contrasts with imperative or procedural languages (such as Java and COBOL) which require step-by-step instructions.
+    </p>
+    
+
+    <h2>The history of SQL</h2>
+    <p>
+      In the 1970s, IBM scientists Donald Chamberlin and Raymond Boyce developed and introduced SQL. It originated from the concept of relational models and was initially called structured English query language (SEQUEL) before being shortened to SQL. It became commercially available in 1979 and has since become the global standard for relational database management systems.
+      SQL was standardized by the American National Standards Institute (ANSI) in 1986 and the International Organization for Standardization (ISO) in 1987. Despite being a standard, SQL has various dialects, such as T-SQL for Microsoft SQL Server and PL/SQL for Oracle Database. These SQL dialects meet specific system needs while remaining compliant with the core ANSI standard commands such as SELECT, UPDATE, DELETE, INSERT and WHERE.
     </p>
 
-    <h2>Inrush Current</h2>
+    <h2>Why is SQL important?</h2>
     <p>
-      When a transformer is energized, magnetizing inrush current can momentarily reach several times
-      full-load current — high enough to look like a fault to an improperly configured relay. This
-      current is rich in second-harmonic content, which is what distinguishes it from an actual internal
-      fault current.
+      Since its development in the 1970s, SQL has become the backbone of modern database systems.
+      Unlike general-purpose programming languages, SQL is purpose-built for relational databases—and relational databases are, in turn, optimized for SQL. This mutual design renders SQL a highly efficient data management tool.
+      SQL’s declarative nature makes it accessible even to users with limited programming experience, making it an ideal language for beginners. Its widespread use and integration with other programming languages like Python and Java also make it a valuable skill in broader programming and data environments.
+      Data analysts, data scientists and database administrators regularly use SQL because it excels at tasks such as data processing, data definition, access control, data sharing, data integration and big data analytics.
+      In data science, SQL is used to create databases that store large data sets needed for data analysis. Its ability to manipulate and retrieve data from these vast, structured datasets is also crucial in the development of artificial intelligence (AI) and machine learning (ML) applications, which depend on high-quality data for training.By adhering to ACID properties—atomicity, consistency, isolation and durability—SQL helps ensure reliable transaction processing for critical use cases and sensitive data handling. It also supports more accurate data-driven decision-making, advanced analytics and enhanced business intelligence.
     </p>
 
-    <h2>Second-Harmonic Blocking</h2>
-    <p>
-      Modern numerical relays (like the SEL-751 or SEL-387) use second-harmonic restraint to
-      distinguish inrush from real faults — if the second-harmonic content of the differential current
-      exceeds a set threshold (commonly 15–20%), the relay blocks or restrains tripping. Setting this
-      threshold too high risks missing a genuine internal fault; setting it too low risks nuisance
-      tripping on energization.
-    </p>
+    <h2>How does a SQL query work?</h2>
+    <p>A relational database organizes data in a tabular format (rows and columns) and facilitates relationships between different tables. For instance, a customer service database might use separate tables for customer information, purchases, product codes and contacts, linked by keys like a unique customer ID.</p>
+    <p>SQL allows users to write queries (and subqueries) to manipulate this data. These commands run through several software components during the SQL process:</p>
 
-    <h2>Constraint Windows and Pickup Coordination</h2>
-    <p>
-      Differential pickup must sit above normal transformer through-load unbalance and CT mismatch
-      error, but well below the minimum fault current for an internal fault. Add in tap-changer position
-      effects on turns ratio compensation, and the margin between "too sensitive" and "not sensitive
-      enough" narrows considerably — especially for transformers operating near the top or bottom of
-      their tap range.
-    </p>
-
-    <ul>
-      <li>Verify CT ratio mismatch compensation is correctly configured on both windings</li>
-      <li>Confirm second-harmonic restraint threshold aligns with the specific transformer's inrush profile</li>
-      <li>Account for tap-changer range when setting minimum pickup</li>
-      <li>Coordinate differential settings with upstream/downstream overcurrent protection</li>
-    </ul>
-
-    <p>
-      None of these steps are individually difficult, but getting all of them right simultaneously —
-      and verifying the combination doesn't create a coordination gap — is where transformer protection
-      studies tend to take longer than expected.
-    </p>
 
   </div>
 
