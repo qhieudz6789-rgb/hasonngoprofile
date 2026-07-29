@@ -189,47 +189,90 @@
   <div class="post-body">
 
     <p>
-      Composite load models are one of the most misunderstood pieces of a dynamic simulation study,
-      and the ERCOT variants — CMPLDW2 and CMPLDWBLU — are commonly confused for one another. Both
-      represent a mix of motor and static load behavior, but they diverge in how they're parameterized
-      and where each is expected to be used.
+      Data warehouses store and process large amounts of data from various sources within a business. 
+      An integral component of business intelligence (BI), data warehouses help businesses make better, 
+      more informed decisions by applying data analytics to large volumes of information. 
+
+      Learn more about what data warehouses are, their benefits, and how they’re used in the real world. 
+      Also, discover how data warehouses differ from other similar concepts, explore common warehousing tools, 
+      and find relevant courses that can help you start a career in data. 
     </p>
 
-    <h2>CMPLDW2</h2>
+    <h2>What is a data warehouse?</h2>
     <p>
-      CMPLDW2 is the standard WECC-style composite load model, representing a feeder-level mix of
-      three-phase motors, single-phase motors (including air conditioning compressors), electronic
-      loads, and static load. It has become the default choice for most transmission-level dynamic
-      studies due to its ability to capture fault-induced delayed voltage recovery (FIDVR) behavior.
+      A data warehouse, or “enterprise data warehouse” (EDW), is a central repository system in which 
+      businesses store valuable information, such as customer and sales data, for analytics and reporting purposes. 
+
+      Used to develop insights and guide decision-making via business intelligence (BI), data warehouses often 
+      contain a combination of both current and historical data that has been extracted, transformed, and 
+      loaded (ETL) from several sources, including internal and external databases.
+
+      Typically, a data warehouse acts as a business’s single source of truth (SSOT) by centralizing data 
+      within a non-volatile and standardized system accessible to relevant employees. Designed to facilitate 
+      online analytical processing (OLAP) and used for quick and efficient multidimensional data analysis, 
+      data warehouses contain large stores of summarized data that can sometimes be many petabytes large.
+    </p>
+    
+
+    <h3>1.Health Care</h3>
+    <p>
+      In recent decades, the health care industry has increasingly turned to data analytics to improve patient care, 
+      efficiently manage operations, and reach business goals. As a result, data scientists, data analysts, and 
+      health informatics professionals rely on data warehouses to store and process large amounts of relevant health care data. 
+    </p>
+    <h3>2.Banking</h3>
+    <p>
+        Open up a banking statement and you’ll likely see a long list of transactions: ATM withdrawals, purchases, bill 
+        payments, and on and on. While the list of transactions might be long for a single individual, they’re much longer 
+        for the many millions of customers who rely on banking services every day. Rather than sitting on this wealth of data, 
+        banks use data warehouses to store and analyze this data to develop actionable insights and improve their service offerings. 
+    </p>
+    <h3>3.Retail</h3>
+    <p>
+        Retailers—whether online or in-person—are concerned about how much product they’re buying, selling, and stocking. 
+        Today, data warehouses allow retailers to store large amounts of transactional and customer information to help them 
+        improve their decision-making when purchasing inventory and marketing products to their target market. 
+    </p>
+    
+    <h2>Data Warehouse Benefit</h2>
+    <p>
+      Data warehouses provide many benefits to businesses. Some of the most common benefits include: 
     </p>
     <ul>
-      <li>Includes distribution feeder equivalent impedance</li>
-      <li>Separately models single-phase AC motor stalling behavior</li>
-      <li>Widely accepted across WECC and increasingly adopted by ERCOT</li>
+      <li>Provide a stable, centralized repository for large amounts of historical data</li>
+      <li>Improve business processes and decision-making with actionable insights</li>
+      <li>Increase a business’s overall return on investment (ROI)</li>
+      <li>Improve data quality </li>
+      <li>Enhance BI performance and capabilities by drawing on multiple sources</li>
+      <li>Provide access to historical data business-wide</li>
+      <li>Use AI and machine learning to improve business analytics</li>
     </ul>
 
-    <h2>CMPLDWBLU</h2>
+    <h2>Data Warehouse Concept</h2>
     <p>
-      CMPLDWBLU is an ERCOT-specific variant with adjusted default parameters tuned to better reflect
-      the composition of load in the ERCOT footprint — notably a higher proportion of electronic and
-      power-electronic-based load compared to the WECC default assumptions.
+        Whether you’re looking to start a career in business intelligence or data analytics, more generally, you should have a strong grasp of key data warehouse concepts and terms. Some of the most common to know include the following: 
     </p>
-    <ul>
-      <li>Same underlying structure as CMPLDW2, different default parameter set</li>
-      <li>Reflects ERCOT-specific load composition assumptions</li>
-      <li>Required in certain ERCOT interconnection study submissions</li>
-    </ul>
-
-    <h2>Why the Distinction Matters</h2>
+    <h3>Data warehouse architecture</h3>
     <p>
-      Using the wrong variant — or the wrong default parameter set — can meaningfully change the
-      simulated post-fault voltage recovery profile, which in turn affects whether a study shows
-      compliance with FIDVR criteria. When submitting models for ERCOT studies, always confirm which
-      composite load variant and parameter set is expected before running the final case, since mixing
-      up CMPLDW2 defaults with CMPLDWBLU expectations is one of the more common review comments on
-      submitted models.
+        The exact architecture of a data warehouse will vary from one to another. Data warehouses can be one-,
+         two-, or three-tier structures. Perhaps the most common, however, is the three-tier architectural 
+         structure, which looks as follows: 
     </p>
-
+    <u1>
+        <li>Bottom tier, also called the data tier, where the data is supplied to the warehouse </li>
+        <li>Middle tier, also called the application tier, where an OLAP server processes the data </li>
+        <li>Top tier, also called the presentation tier, which is designed for end-users with particular tools 
+            and application programming interfaces (APIs) used for data extraction and analysis</li>
+    </u1>
+<div style="position: relative; width: 100%; padding-bottom: 56.25%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; border: 1px solid #000;">
+      <iframe
+        src="https://www.youtube.com/embed/Oyhrn1TyGeY"
+        title="YouTube video"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
   </div>
 
   <footer>
