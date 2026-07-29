@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Warehouse — Quang-Ha (Hanson) Ngo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #FFFFFF;
+      --bg-subtle:    #F5F5F5;
+      --navy:         #1A4F9C;
+      --text:         #000000;
+      --text-dim:     #4a4a4a;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1.25rem 3rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #000;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); font-weight: 500; }
+
+    .post-header {
+      padding: 8rem 3rem 2rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--navy);
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    .post-meta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.8rem;
+    }
+
+    .post-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .post-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 0.15rem 0.55rem;
+      letter-spacing: 0.04em;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid #000;
+      max-width: 760px;
+      margin: 2rem auto;
+    }
+
+    .post-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 3rem 4rem;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .post-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin: 2.2rem 0 1rem;
+    }
+
+    .post-body p {
+      margin-bottom: 1.2rem;
+      color: var(--text-dim);
+    }
+
+    .post-body ul {
+      margin: 0 0 1.2rem 1.4rem;
+      color: var(--text-dim);
+    }
+
+    .post-body li { margin-bottom: 0.5rem; }
+
+    .post-body strong { color: var(--text); font-weight: 500; }
+
+    footer {
+      border-top: 1px solid #000;
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text); letter-spacing: 0.04em; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.85rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--navy); }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .post-header { padding: 7rem 1.5rem 2rem; }
+      .post-body { padding: 0 1.5rem 3rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="index.html#expertise">Expertise</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+  </nav>
+
+  <div class="post-header">
+    <a class="back-link" href="blog.html">← Back to Blog</a>
+    <div class="post-meta">Aug 2026</div>
+    <h1>Data Warehouse</h1>
+    <span class="post-tag">Load Modeling</span>
+  </div>
+
+  <hr class="divider">
+
+  <div class="post-body">
+
+    <p>
+      Composite load models are one of the most misunderstood pieces of a dynamic simulation study,
+      and the ERCOT variants — CMPLDW2 and CMPLDWBLU — are commonly confused for one another. Both
+      represent a mix of motor and static load behavior, but they diverge in how they're parameterized
+      and where each is expected to be used.
+    </p>
+
+    <h2>CMPLDW2</h2>
+    <p>
+      CMPLDW2 is the standard WECC-style composite load model, representing a feeder-level mix of
+      three-phase motors, single-phase motors (including air conditioning compressors), electronic
+      loads, and static load. It has become the default choice for most transmission-level dynamic
+      studies due to its ability to capture fault-induced delayed voltage recovery (FIDVR) behavior.
+    </p>
+    <ul>
+      <li>Includes distribution feeder equivalent impedance</li>
+      <li>Separately models single-phase AC motor stalling behavior</li>
+      <li>Widely accepted across WECC and increasingly adopted by ERCOT</li>
+    </ul>
+
+    <h2>CMPLDWBLU</h2>
+    <p>
+      CMPLDWBLU is an ERCOT-specific variant with adjusted default parameters tuned to better reflect
+      the composition of load in the ERCOT footprint — notably a higher proportion of electronic and
+      power-electronic-based load compared to the WECC default assumptions.
+    </p>
+    <ul>
+      <li>Same underlying structure as CMPLDW2, different default parameter set</li>
+      <li>Reflects ERCOT-specific load composition assumptions</li>
+      <li>Required in certain ERCOT interconnection study submissions</li>
+    </ul>
+
+    <h2>Why the Distinction Matters</h2>
+    <p>
+      Using the wrong variant — or the wrong default parameter set — can meaningfully change the
+      simulated post-fault voltage recovery profile, which in turn affects whether a study shows
+      compliance with FIDVR criteria. When submitting models for ERCOT studies, always confirm which
+      composite load variant and parameter set is expected before running the final case, since mixing
+      up CMPLDW2 defaults with CMPLDWBLU expectations is one of the more common review comments on
+      submitted models.
+    </p>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">© 2026 Quang-Ha (Hanson) Ngo</span>
+    <div class="footer-links">
+      <a href="index.html">About</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="blog.html">Blog</a>
+      <a href="mailto:quanghango1998@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>
