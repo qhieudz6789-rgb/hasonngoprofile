@@ -189,34 +189,41 @@
   <div class="post-body">
 
     <h2>What is Structured Query Language?</h2>
-    <p>
-      Structured Query Language (SQL) is a domain-specific, standardized programming language used to interact with relational database management systems (RDBMS) such as MySQL, SQL Server, IBM Db2, PostgreSQL and Oracle Database.
-      SQL queries (also known as SQL commands or SQL statements) allow users to easily add, retrieve, update, delete, aggregate and otherwise manage data in a relational database (or SQL database). In these systems, structured data is ordered into rows and columns, which together form tables. Data is typically structured across multiple related tables that can be linked using primary or foreign keys.
-      Unlike other programming languages, SQL is a declarative language, which means it describes what the user wants the computer to do rather than how to achieve it. This contrasts with imperative or procedural languages (such as Java and COBOL) which require step-by-step instructions.
-    </p>
+    <p>Structured Query Language (SQL) is a domain-specific, standardized programming language used to interact with relational database management systems (RDBMS) such as MySQL, SQL Server, IBM Db2, PostgreSQL and Oracle Database.</p>
+    <p>SQL queries (also known as SQL commands or SQL statements) allow users to easily add, retrieve, update, delete, aggregate and otherwise manage data in a relational database (or SQL database). In these systems, structured data is ordered into rows and columns, which together form tables. Data is typically structured across multiple related tables that can be linked using primary or foreign keys.</p>  
+    <p>Unlike other programming languages, SQL is a declarative language, which means it describes what the user wants the computer to do rather than how to achieve it. This contrasts with imperative or procedural languages (such as Java and COBOL) which require step-by-step instructions.</p>
     
 
     <h2>The history of SQL</h2>
-    <p>
-      In the 1970s, IBM scientists Donald Chamberlin and Raymond Boyce developed and introduced SQL. It originated from the concept of relational models and was initially called structured English query language (SEQUEL) before being shortened to SQL. It became commercially available in 1979 and has since become the global standard for relational database management systems.
-      SQL was standardized by the American National Standards Institute (ANSI) in 1986 and the International Organization for Standardization (ISO) in 1987. Despite being a standard, SQL has various dialects, such as T-SQL for Microsoft SQL Server and PL/SQL for Oracle Database. These SQL dialects meet specific system needs while remaining compliant with the core ANSI standard commands such as SELECT, UPDATE, DELETE, INSERT and WHERE.
-    </p>
+    <p>In the 1970s, IBM scientists Donald Chamberlin and Raymond Boyce developed and introduced SQL. It originated from the concept of relational models and was initially called structured English query language (SEQUEL) before being shortened to SQL. It became commercially available in 1979 and has since become the global standard for relational database management systems.</p>
+    <p>SQL was standardized by the American National Standards Institute (ANSI) in 1986 and the International Organization for Standardization (ISO) in 1987. Despite being a standard, SQL has various dialects, such as T-SQL for Microsoft SQL Server and PL/SQL for Oracle Database. These SQL dialects meet specific system needs while remaining compliant with the core ANSI standard commands such as SELECT, UPDATE, DELETE, INSERT and WHERE.</p>
 
     <h2>Why is SQL important?</h2>
-    <p>
-      Since its development in the 1970s, SQL has become the backbone of modern database systems.
-      Unlike general-purpose programming languages, SQL is purpose-built for relational databases—and relational databases are, in turn, optimized for SQL. This mutual design renders SQL a highly efficient data management tool.
-      SQL’s declarative nature makes it accessible even to users with limited programming experience, making it an ideal language for beginners. Its widespread use and integration with other programming languages like Python and Java also make it a valuable skill in broader programming and data environments.
-      Data analysts, data scientists and database administrators regularly use SQL because it excels at tasks such as data processing, data definition, access control, data sharing, data integration and big data analytics.
-      In data science, SQL is used to create databases that store large data sets needed for data analysis. Its ability to manipulate and retrieve data from these vast, structured datasets is also crucial in the development of artificial intelligence (AI) and machine learning (ML) applications, which depend on high-quality data for training.By adhering to ACID properties—atomicity, consistency, isolation and durability—SQL helps ensure reliable transaction processing for critical use cases and sensitive data handling. It also supports more accurate data-driven decision-making, advanced analytics and enhanced business intelligence.
-    </p>
+    <p>Since its development in the 1970s, SQL has become the backbone of modern database systems.</p>
+    <p>Unlike general-purpose programming languages, SQL is purpose-built for relational databases—and relational databases are, in turn, optimized for SQL. This mutual design renders SQL a highly efficient data management tool.</p>  
+    <p>SQL’s declarative nature makes it accessible even to users with limited programming experience, making it an ideal language for beginners. Its widespread use and integration with other programming languages like Python and Java also make it a valuable skill in broader programming and data environments.</p>
+    <p>Data analysts, data scientists and database administrators regularly use SQL because it excels at tasks such as data processing, data definition, access control, data sharing, data integration and big data analytics.</p>  
+    <p>In data science, SQL is used to create databases that store large data sets needed for data analysis. Its ability to manipulate and retrieve data from these vast, structured datasets is also crucial in the development of artificial intelligence (AI) and machine learning (ML) applications, which depend on high-quality data for training.By adhering to ACID properties—atomicity, consistency, isolation and durability—SQL helps ensure reliable transaction processing for critical use cases and sensitive data handling. It also supports more accurate data-driven decision-making, advanced analytics and enhanced business intelligence.</p>
 
     <h2>How does a SQL query work?</h2>
     <p>A relational database organizes data in a tabular format (rows and columns) and facilitates relationships between different tables. For instance, a customer service database might use separate tables for customer information, purchases, product codes and contacts, linked by keys like a unique customer ID.</p>
     <p>SQL allows users to write queries (and subqueries) to manipulate this data. These commands run through several software components during the SQL process:</p>
-
-
-  </div>
+    <p>Then, a relational engine—also known as a query optimizer—plans the most efficient data retrieval, modification or addition strategies. It does so by evaluating different query execution plans. It writes the plan in bytecode, which is a virtual machine language. This step is crucial for optimizing database performance and resource use.</p>
+    <p>Finally, a storage engine processes the bytecode, runs the SQL statement and manages physical data storage. It handles the physical representation of data, including file formats and data buffering. It also returns the result to the user or app. This step helps ensure efficient data access and updates on the disk. This linkage often involves relationships, such as one-to-many or many-to-many, established using primary and foreign keys to help ensure data integrity.</p>
+    <h2>Key components of SQL systems</h2>
+    <u1>
+        <l1>Databases: A digital repository for storing, managing and securing organized collections of data.</l1>
+        <l1>Database tables: Data formatted into rows and columns; each contains information on one type of entity.</l1>
+        <l1>SQL queries: SQL queries are instructions written in SQL used to manipulate data within a relational database.</l1>
+        <l1>SQL constraints: Rules that control data in database columns or tables to maintain data integrity.</l1>
+        <l1>Stored procedures: SQL commands that are saved for continued reuse.</l1>
+        <l1>Transactions: One or more SQL commands bundled as a single unit of work or operation.</l1>
+        <l1>Data types: Rules that define the type of data that can be stored in a column.</l1>
+        <l1>Indexes: A database object that speeds up data retrieval by reducing the number of disk accesses needed for a query.</l1>
+        <l1>Views: Virtual tables based on SQL queries that simplify complex queries and improve security by restricting access to underlying data.</l1>
+        <l1>Security and permissions: Functions to manage user access, while backup and recovery mechanisms protect data against loss or corruption.</l1>
+    </u1>
+</div>
 
   <footer>
     <span class="footer-left">© 2026 Quang-Ha (Hanson) Ngo</span>
