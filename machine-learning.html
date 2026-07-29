@@ -196,45 +196,76 @@
 
   <div class="post-body">
 
+    <h2>Machine learning definition</h2>
     <p>
-      Running harmonic scans across dozens of system configurations by hand in PSCAD is slow and
-      error-prone. The PSCAD Automation Library exposes a Python interface that lets you drive the
-      simulation environment programmatically — sweeping parameters, launching runs, and pulling
-      results without manually clicking through the GUI for every case.
+      Machine learning is a subfield of artificial intelligence (AI) that uses algorithms trained on data sets to create self-learning models capable of predicting outcomes and classifying information without human intervention. Machine learning is used today for a wide range of commercial purposes, including suggesting products to consumers based on their past purchases, predicting stock market fluctuations, and translating text from one language to another.
     </p>
-
-    <h2>Basic Workflow</h2>
-    <p>
-      The typical automated harmonic scan follows a repeatable structure: load the project, sweep a
-      parameter (such as source impedance or filter tuning), run the case, then extract and log the
-      output. A minimal loop looks something like this:
-    </p>
+    <h3>Examples and use cases</h3>
+    <p>Machine learning is typically the most mainstream type of AI technology in use today. Some of the most common examples of machine learning that you may have interacted with in your day-to-day life include:</p>
     <ul>
-      <li>Connect to PSCAD via the automation interface</li>
-      <li>Loop through a list of scenario parameters</li>
-      <li>Update component parameters programmatically for each scenario</li>
-      <li>Trigger the simulation run and wait for completion</li>
-      <li>Extract .out file results and append to a consolidated dataset</li>
-    </ul>
+      <li>Recommendation engines that suggest products, songs, or television shows to you, such as those found on Amazon, Spotify, or Netflix. </li>
+      <li>Speech recognition software that allows you to convert voice memos into text.</li>
+      <li>A bank’s fraud detection services automatically flag suspicious transactions. </li>
+      <li>Self-driving cars and driver assistance features, such as blind-spot detection and automatic stopping, to improve overall vehicle safety. </li>
 
-    <h2>Batch-Processing Output Files</h2>
+    <h2>How does machine learning work? </h2>
     <p>
-      Once results are collected, the raw <code>.out</code> files still need to be parsed into usable
-      harmonic spectra. A Python script using <code>pandas</code> and a basic FFT routine can process
-      each output file, extract the relevant harmonic orders, and consolidate everything into a single
-      spreadsheet or dataframe — turning what would be hours of manual copy-paste into a script that
-      runs in minutes.
+      Machine learning is both simple and complex. 
+      At its core, the method simply uses algorithms – essentially lists of rules – adjusted and refined using past data sets to make predictions and categorizations when confronted with new data. For example, a machine learning algorithm may be “trained” on a data set consisting of thousands of images of flowers that are labeled with each of their different flower types so that it can then correctly identify a flower in a new photograph based on the differentiating characteristics it learned from other pictures. 
+      To ensure such algorithms work effectively, however, they must typically be refined many times until they accumulate a comprehensive list of instructions that allow them to function correctly. Algorithms that have been trained sufficiently eventually become “machine learning models,” which are essentially algorithms that have been trained to perform specific tasks like sorting images, predicting housing prices, or making chess moves. In some cases, algorithms are layered on top of each other to create complex networks that allow them to do increasingly complex, nuanced tasks like generating text and powering chatbots via a method known as “deep learning.”
+      As a result, although the general principles underlying machine learning are relatively straightforward, the models that are produced at the end of the process can be very elaborate and complex.
+
     </p>
 
-    <h2>Where This Pays Off Most</h2>
+    <h2>Types of machine learning </h2>
     <p>
-      The time savings compound quickly on studies involving many sensitivity cases — for example,
-      scanning harmonic impedance across a range of system strength (SCR) values, or checking filter
-      performance across multiple operating points. What would take a full day of manual runs can often
-      be reduced to an unattended overnight batch, freeing up time to focus on interpreting results
-      rather than clicking through the GUI.
+      Several different types of machine learning power the many different digital goods and services we use every day. While each of these different types attempts to accomplish similar goals – to create machines and applications that can act without human intervention – the precise methods they use differ somewhat.
+      To help you get a better idea of how these types differ from one another, here’s an overview of the four different types of machine learning primarily in use today. 
     </p>
-
+    <h3>1. Supervised machine learning</h3>
+    <p>
+      In supervised learning, algorithms are trained on labeled data sets that include tags describing each piece of data. In other words, the algorithms are fed data that includes an “answer key” describing how it should be interpreted. For example, an algorithm may be fed images of flowers that include tags for each flower type so that it will be able to identify the flower better again when fed a new photograph.
+      Supervised learning is often used to create machine learning models used for prediction and classification purposes.
+    </p>
+    <h3>2. Unsupervised machine learning</h3>
+    <p>
+      Unsupervised learning uses unlabeled data sets to train algorithms. In this process, the algorithm is fed data that doesn't include tags, which requires it to uncover patterns on its own without any outside guidance. For instance, an algorithm may be fed a large amount of unlabeled user data culled from a social media site in order to identify behavioral trends on the platform. 
+      Unsupervised machine learning is often used by researchers and data scientists to identify patterns within large, unlabeled data sets quickly and efficiently.
+    </p>
+    <h3>3. Semi-supervised machine learning</h3>
+    <p>
+      Semi-supervised learning uses both unlabeled and labeled data sets to train algorithms. Generally, during semi-supervised learning, algorithms are first fed a small amount of labeled data to help direct their development and then fed much larger quantities of unlabeled data to complete the model. For example, an algorithm may be fed a smaller quantity of labeled speech data and then trained on a much larger set of unlabeled speech data in order to create a model capable of speech recognition.
+      Semi-supervised learning is often employed to train algorithms for classification and prediction purposes when large volumes of labeled data are unavailable.
+    </p>
+    <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; border: 1px solid #000;">
+      <iframe
+        src="https://www.youtube.com/embed/oa83rq0mpJg"
+        title="YouTube video"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <h3>4. Reinforcement learning </h3>
+    <p>
+      Reinforcement learning uses trial and error to train algorithms and create models. During the training process, algorithms operate in specific environments and then are provided with feedback following each outcome. Much like how a child learns, the algorithm slowly begins to acquire an understanding of its environment and begins to optimize actions to achieve particular outcomes. For instance, an algorithm may be optimized by playing successive games of chess, which allows it to learn from its past successes and failures playing each game.
+      Reinforcement learning is often used to create algorithms that must effectively make sequences of decisions or actions to achieve their aims, such as playing a game or summarizing an entire text. 
+    </p>
+    <h2>Machine learning benefits and risks </h2>
+    <p>
+      Machine learning is already transforming much of our world for the better. Today, the method is used to construct models capable of identifying cancer growths in medical scans, detecting fraudulent transactions, and even helping people learn languages. But, as with any new society-transforming technology, there are also potential dangers to know about.
+      At a glance, here are some of the major benefits and potential drawbacks of machine learning:
+    </p>
+    <h2>Build your machine learning and AI skills with free resources</h2>
+    <p>Whether you want to become a machine learning engineer or just want to learn machine learning to boost your productivity at work, check out some of these resources:</p>
+    <u1>
+      <l1>Watch our video on YouTube: Your Machine Learning Roadmap</l1>
+      <l1>Read our career guide: Machine Learning Roadmap</l1>
+      <l1>Read an interview with an AI Instructor: The AI Advantage: 9 Questions to Unlock Your Potential</l1>
+    </u1>
+    <p>
+      Whether you want to develop a new skill, get comfortable with an in-demand technology, or advance your abilities, keep growing with a Coursera Plus subscription. You’ll get access to over 10,000 flexible courses.
+    </p>
   </div>
 
   <footer>
