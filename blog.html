@@ -81,6 +81,60 @@
       color: var(--text);
     }
 
+    /* SEARCH BOX */
+    .search-box {
+      margin-top: 2rem;
+      position: relative;
+    }
+ 
+    .search-box input {
+      width: 100%;
+      max-width: 420px;
+      padding: 0.7rem 1rem 0.7rem 2.4rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--bg-subtle);
+      border: 1px solid #000;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+ 
+    .search-box input:focus { border-color: var(--navy); }
+ 
+    .search-box::before {
+      content: "";
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--text-dim);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+ 
+    .search-box::after {
+      content: "";
+      position: absolute;
+      left: 1.65rem;
+      top: 63%;
+      width: 6px;
+      height: 2px;
+      background: var(--text-dim);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+ 
+    .no-results {
+      display: none;
+      padding: 2rem 0;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
     /* POST LIST */
     .post-list {
       max-width: 900px;
@@ -230,7 +284,7 @@
   </footer>
 
 
-  <script>
+ <script>
     document.addEventListener('DOMContentLoaded', function () {
       const searchInput = document.getElementById('blog-search');
       const postList = document.getElementById('post-list');
