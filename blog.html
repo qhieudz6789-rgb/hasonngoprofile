@@ -15,6 +15,7 @@
       --bg-subtle:    #F5F5F5;
       --navy:         #1A4F9C;
       --text:         #000000;
+      --text-dim:     #4a4a4a;
       --font-display: 'Space Grotesk', sans-serif;
       --font-body:    'Inter', sans-serif;
       --font-mono:    'JetBrains Mono', monospace;
@@ -84,9 +85,10 @@
     /* SEARCH BOX */
     .search-box {
       margin-top: 2rem;
+      margin-left: 132px;
       position: relative;
     }
- 
+
     .search-box input {
       width: 100%;
       max-width: 420px;
@@ -100,9 +102,9 @@
       outline: none;
       transition: border-color 0.2s;
     }
- 
+
     .search-box input:focus { border-color: var(--navy); }
- 
+
     .search-box::before {
       content: "";
       position: absolute;
@@ -115,7 +117,7 @@
       border-radius: 50%;
       pointer-events: none;
     }
- 
+
     .search-box::after {
       content: "";
       position: absolute;
@@ -127,7 +129,7 @@
       transform: rotate(45deg);
       pointer-events: none;
     }
- 
+
     .no-results {
       display: none;
       padding: 2rem 0;
@@ -209,6 +211,7 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1.25rem; }
       .page-header { padding: 7rem 1.5rem 2rem; }
+      .search-box { margin-left: 0; }
       .post-list { padding: 0 1.5rem; }
       .post-item { grid-template-columns: 1fr; gap: 0.25rem; }
       footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
@@ -234,12 +237,7 @@
     </div>
   </div>
 
-  <div class="search-box">
-      <input type="text" id="blog-search" placeholder="Search posts by title or tag...">
-    </div>
-  </div>
-
-  <div class="post-list">
+  <div class="post-list" id="post-list">
 
     <p class="no-results" id="no-results">No posts match your search.</p>
 
@@ -248,7 +246,7 @@
       <span class="post-date">Jul 2026</span>
       <div>
         <p class="post-title">Data center, Microgrid, Electric Power System</p>
-        <p class="post-excerpt">Microgrids and the Modern Data Center: A Power Systems Perspective.</p>
+        <p class="post-excerpt">What data centers are, how much power they consume, and how microgrids enable resilient, islandable operation for critical facilities.</p>
         <span class="post-tag">BESS</span>
       </div>
     </a>
@@ -257,7 +255,7 @@
       <span class="post-date">Aug 2026</span>
       <div>
         <p class="post-title">Machine Learning</p>
-        <p class="post-excerpt">A practitioner's comparison of two commonly confused dynamic load models and how to parameterize them correctly.</p>
+        <p class="post-excerpt">How machine learning works, and a breakdown of the four main types — supervised, unsupervised, semi-supervised, and reinforcement learning.</p>
         <span class="post-tag">Load Modeling</span>
       </div>
     </a>
@@ -266,7 +264,7 @@
       <span class="post-date">Aug 2026</span>
       <div>
         <p class="post-title">Data Warehouse</p>
-        <p class="post-excerpt">Inrush, 2nd harmonic blocking, and the constraint windows that make pick-up rules non-trivial.</p>
+        <p class="post-excerpt">What a data warehouse is, why businesses rely on it for BI and analytics, and the three-tier architecture behind it.</p>
         <span class="post-tag">Protection</span>
       </div>
     </a>
@@ -275,7 +273,7 @@
       <span class="post-date">Aug 2026</span>
       <div>
         <p class="post-title">SQL</p>
-        <p class="post-excerpt">Workflow notes on using the PSCAD Automation API to batch-process harmonic study outputs.</p>
+        <p class="post-excerpt">A primer on SQL — its history, why it remains the backbone of relational databases, and the key components every practitioner should know.</p>
         <span class="post-tag">Automation</span>
       </div>
     </a>
@@ -293,28 +291,27 @@
     </div>
   </footer>
 
-
- <script>
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
       const searchInput = document.getElementById('blog-search');
       const postList = document.getElementById('post-list');
       const posts = Array.from(postList.querySelectorAll('.post-item'));
       const noResults = document.getElementById('no-results');
- 
+
       searchInput.addEventListener('input', function () {
         const query = this.value.trim().toLowerCase();
         let visibleCount = 0;
- 
+
         posts.forEach(function (post) {
           const title = post.querySelector('.post-title').textContent.toLowerCase();
           const excerpt = post.querySelector('.post-excerpt').textContent.toLowerCase();
           const tag = post.querySelector('.post-tag').textContent.toLowerCase();
           const matches = title.includes(query) || excerpt.includes(query) || tag.includes(query);
- 
+
           post.style.display = matches ? '' : 'none';
           if (matches) visibleCount++;
         });
- 
+
         noResults.style.display = visibleCount === 0 ? 'block' : 'none';
       });
     });
