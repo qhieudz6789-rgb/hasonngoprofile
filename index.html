@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Quang-Ha (Hanson) Ngo — Power System Engineer, PhD</title>
+  <title>Quang-Hieu (Hanson) Ngo — Power System Engineer, PhD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -311,6 +311,104 @@
     .about-text strong { color: var(--ink); font-weight: 600; }
     .about-text + .about-text { margin-top: 1.1rem; }
 
+    /* ---------- Skills ---------- */
+    .skills-list { list-style: none; max-width: 760px; }
+    .skills-list li {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--line-soft);
+      font-size: 0.92rem;
+      color: var(--ink-dim);
+      line-height: 1.6;
+    }
+    .skills-list li:last-child { border-bottom: none; }
+    .skills-list li::before {
+      content: '';
+      width: 5px; height: 5px;
+      margin-top: 0.55em;
+      background: var(--redline);
+      flex-shrink: 0;
+    }
+    .skills-list strong { color: var(--ink); font-weight: 600; }
+
+    /* ---------- Education & Research Experience entries ---------- */
+    .entry { max-width: 760px; }
+    .entry + .entry {
+      margin-top: 2.1rem;
+      padding-top: 2.1rem;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .entry-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .entry-date {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--navy);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .entry-org {
+      font-size: 0.92rem;
+      color: var(--ink-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .entry-thesis {
+      font-size: 0.9rem;
+      color: var(--ink-dim);
+      font-style: italic;
+      margin-bottom: 0.4rem;
+    }
+
+    .entry-thesis strong { font-style: normal; color: var(--ink); font-weight: 600; }
+
+    .entry-gpa {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-dim);
+    }
+
+    .entry ul {
+      margin: 0.7rem 0 0 0;
+      list-style: none;
+    }
+
+    .entry ul li {
+      position: relative;
+      padding-left: 1.1rem;
+      font-size: 0.92rem;
+      color: var(--ink-dim);
+      line-height: 1.75;
+      margin-bottom: 0.6rem;
+    }
+
+    .entry ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.62em;
+      width: 5px; height: 5px;
+      background: var(--redline);
+    }
+
+    .entry ul li strong { color: var(--ink); font-weight: 600; }
+
     /* ---------- Footer ---------- */
     footer {
       border-top: 1px solid var(--line);
@@ -372,11 +470,11 @@
         and write about the ideas, tools, and problems I encounter along the way.
       </p>
       <div class="social-links">
-        <a class="social-link" href="mailto:hanq@clarkson.edu">
+        <a class="social-link" href="mailto:quanghango1998@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
           </svg>
-          hanq@clarkson.edu
+          quanghango1998@gmail.com
         </a>
         <a class="social-link" href="https://scholar.google.com/citations?user=ZR65deoAAAAJ&hl=en" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -447,6 +545,116 @@
     </svg>
   </div>
 
+  <section id="research-background" class="reveal">
+    <p class="section-eyebrow">Overview</p>
+    <h2>Research Background</h2>
+    <div class="section-rule"></div>
+    <p class="about-text">
+      Quang-Ha Ngo received his B.Sc. in Electrical and Electronics Engineering from Hanoi University
+      of Science and Technology in 2021 and his M.S. from Clarkson University in 2023. He is currently
+      pursuing a Ph.D. at the Center for Electric Power System Research (CEPSR), Clarkson University,
+      Potsdam, NY. He also served as a Distribution Grid Resilience Intern at ABB during the Summer and
+      Fall of 2025. His research interests include smart grids, naval ship power systems, distribution
+      power systems, microgrids, and deep learning algorithms.
+    </p>
+  </section>
+
+  <div class="diagram-divider">
+    <svg viewBox="0 0 900 14" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="7" x2="900" y2="7" stroke="#14171C" stroke-opacity="0.14" stroke-width="1"/>
+      <circle cx="450" cy="7" r="3" fill="#B3402F"/>
+    </svg>
+  </div>
+
+  <section id="skills" class="reveal">
+    <p class="section-eyebrow">Toolset</p>
+    <h2>Skills</h2>
+    <div class="section-rule"></div>
+    <ul class="skills-list">
+      <li><span><strong>Programming:</strong> C, Python, Scala, Julia.</span></li>
+      <li><span><strong>Library:</strong> PyTorch, TensorFlow, Keras, Scikit-learn, Airflow, Hadoop, Spark.</span></li>
+      <li><span><strong>Software:</strong> MATLAB-Simulink, CYME, RT-LAB, RSCAD, PSCAD (for example-based simulations and applications).</span></li>
+      <li><span><strong>Hardware:</strong> TerraSAS PV simulator, Inverters (SolarEdge, Sol-Ark, SMA), Chroma grid simulator, Opal-RT.</span></li>
+      <li><span><strong>Machine Learning:</strong> Graph neural networks, physics-informed machine learning, federated learning, high performance computing (HPC).</span></li>
+    </ul>
+  </section>
+
+  <div class="diagram-divider">
+    <svg viewBox="0 0 900 14" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="7" x2="900" y2="7" stroke="#14171C" stroke-opacity="0.14" stroke-width="1"/>
+      <circle cx="450" cy="7" r="3" fill="#B3402F"/>
+    </svg>
+  </div>
+
+  <section id="education" class="reveal">
+    <p class="section-eyebrow">Academic Record</p>
+    <h2>Education</h2>
+    <div class="section-rule"></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Ph.D. Candidate, Electrical and Computer Engineering</span>
+        <span class="entry-date">2022 – 2026</span>
+      </div>
+      <p class="entry-org">Clarkson University, Potsdam, NY, USA</p>
+      <p class="entry-gpa">Cumulative GPA: 3.88 / 4.00</p>
+      <p class="entry-thesis"><strong>Thesis:</strong> Advanced Graph Learning for State Estimation and Anomaly Detection in Power Distribution Systems</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">M.S., Electrical and Computer Engineering</span>
+        <span class="entry-date">2022 – 2023</span>
+      </div>
+      <p class="entry-org">Clarkson University, Potsdam, NY, USA</p>
+      <p class="entry-thesis"><strong>Thesis:</strong> Graphical Learning-based State Estimation for Power Distribution System</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">B.Sc., Electrical Engineering</span>
+        <span class="entry-date">2016 – 2021</span>
+      </div>
+      <p class="entry-org">Hanoi University of Science and Technology, Hanoi, Vietnam</p>
+      <p class="entry-thesis"><strong>Thesis:</strong> Design of Motion Control System for SCARA Robot using Micro-controller MCX514</p>
+    </div>
+  </section>
+
+  <div class="diagram-divider">
+    <svg viewBox="0 0 900 14" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="7" x2="900" y2="7" stroke="#14171C" stroke-opacity="0.14" stroke-width="1"/>
+      <circle cx="450" cy="7" r="3" fill="#B3402F"/>
+    </svg>
+  </div>
+
+  <section id="research-experience" class="reveal">
+    <p class="section-eyebrow">Positions</p>
+    <h2>Research Experience</h2>
+    <div class="section-rule"></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Graduate Research Assistant</span>
+        <span class="entry-date">06/2022 – present</span>
+      </div>
+      <p class="entry-org">Smart Power Systems and Controls Lab, Electrical and Computer Engineering Department, Clarkson University, Potsdam, New York, USA</p>
+      <ul>
+        <li>Contributing to a <strong>National Science Foundation (NSF)-funded</strong> project titled "Physics-informed Graph Learning for State Estimation and Anomaly Detection in Power Systems," developing a distributed learning technique for state estimation in large-scale power transmission and distribution systems, including a novel method to enhance state estimation and anomaly detection for power system operators using graph-based and physics-informed techniques.</li>
+        <li>Contributing to an <strong>Office of Naval Research (ONR)-funded</strong> project titled "Integrated Intelligent Cyber-Physical Fault-Containment Control for Resilient PEPDS," developing a novel deep graph neural network for detecting and managing cyber-physical fault events on the shipboard system, along with a documented vulnerability assessment of pole-to-pole faults in the MVDC shipboard system.</li>
+        <li>Collaborating on a <strong>New York State Energy Research and Development Authority (NYSERDA)-funded</strong> project titled "Coordinated Grid Controllers and DERs to Enhance Distribution Grid Operation," reviewing and designing coordinated control of grid controllers and smart inverters for reliable, stable distribution grid operation with large-scale distributed energy resources, and developing benchmark distribution system models with integrated PV units for long-term dynamic analysis of voltage violation scenarios.</li>
+        <li>Participating in a <strong>Clarkson-sponsored</strong> project titled "Green-Energy Powered Autonomous Driving Pod (ADP) On-Campus Demonstration," designing a combined solar and wind powered charging station for autonomous vehicles and a hardware-in-the-loop integration for grid impact studies.</li>
+        <li>Set up a cyber communication network using ns-3 and collaborated with colleagues to integrate a load-sharing controller and a real-time simulator, evaluating the combined impact of physical faults and cyber attacks (Denial of Service, Man-in-the-Middle, and False Data Injection Attacks) on hardware-in-the-loop (HIL) testbeds.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="diagram-divider">
+    <svg viewBox="0 0 900 14" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="7" x2="900" y2="7" stroke="#14171C" stroke-opacity="0.14" stroke-width="1"/>
+      <circle cx="450" cy="7" r="3" fill="#B3402F"/>
+    </svg>
+  </div>
+
   <section id="contact" class="reveal">
     <p class="section-eyebrow">Get in Touch</p>
     <h2>Contact</h2>
@@ -456,11 +664,11 @@
       or just swapping notes on interesting engineering problems.
     </p>
     <div class="social-links">
-      <a class="social-link" href="mailto:hanq@clarkson.edu">
+      <a class="social-link" href="mailto:quanghango1998@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
         </svg>
-        hanq@clarkson.edu
+        quanghango1998@gmail.com
       </a>
       <a class="social-link" href="tel:+19843792274">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -487,7 +695,7 @@
     <div class="footer-links">
       <a href="#about">About</a>
       <a href="blog.html">Blog</a>
-      <a href="mailto:hanq@clarkson.edu">Email</a>
+      <a href="mailto:quanghango1998@gmail.com">Email</a>
     </div>
   </footer>
 
