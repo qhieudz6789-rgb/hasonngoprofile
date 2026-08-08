@@ -4,6 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quang-Hieu (Hanson) Ngo — Power System Engineer, PhD</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Quang-Ha (Hanson) Ngo — Power System Engineer, Ph.D. Candidate at Clarkson University. Grid interconnection, IBR modeling, protection engineering, and graph-based state estimation research.">
+  <meta name="author" content="Quang-Ha (Hanson) Ngo">
+
+  <!-- Open Graph (social share preview) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Quang-Ha (Hanson) Ngo — Power System Engineer, PhD">
+  <meta property="og:description" content="Power System Engineer, Ph.D. Candidate at Clarkson University. Grid interconnection, IBR modeling, and protection engineering.">
+  <meta property="og:image" content="avatar.jpg">
+
+  <!-- Favicon: navy square with redline dot, matching site accent -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 fill=%22%231A4F9C%22/><circle cx=%2216%22 cy=%2216%22 r=%225%22 fill=%22%23B3402F%22/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -204,6 +217,16 @@
     .btn:hover { background: var(--navy-deep); border-color: var(--navy-deep); }
     .btn svg { width: 14px; height: 14px; transition: transform 0.2s; }
     .btn:hover svg { transform: translateX(3px); }
+
+    .hero-cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .btn-outline:hover svg { transform: translateY(2px); }
 
     /* Hero photo — drafting plate frame */
     .hero-plate {
@@ -409,6 +432,14 @@
 
     .entry ul li strong { color: var(--ink); font-weight: 600; }
 
+    /* ---------- Publications ---------- */
+    .pub-entry { padding: 0.9rem 0; border-bottom: 1px solid var(--line-soft); }
+    .pub-entry:last-child { border-bottom: none; }
+    .pub-title { font-size: 0.96rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+    .pub-meta { font-size: 0.86rem; color: var(--ink-dim); }
+    .pub-link { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--navy); }
+    .pub-link:hover { color: var(--redline); border-color: var(--redline); }
+
     /* ---------- Footer ---------- */
     footer {
       border-top: 1px solid var(--line);
@@ -432,6 +463,43 @@
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---------- Back to top ---------- */
+    #back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 42px; height: 42px;
+      background: var(--navy);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+      z-index: 90;
+    }
+    #back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    #back-to-top:hover { background: var(--navy-deep); }
+    #back-to-top svg { width: 18px; height: 18px; }
+
+    /* ---------- Scrollspy active state ---------- */
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after { width: 100%; }
+
+    /* ---------- Print ---------- */
+    @media print {
+      nav, #back-to-top, .btn, .hero-cta-row a { display: none !important; }
+      .hero { min-height: auto; padding-top: 20px; }
+      section { padding: 1.2rem 0; max-width: 100%; }
+      .diagram-divider { display: none; }
+      body { font-size: 11pt; }
+      a { text-decoration: none; color: inherit; }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
@@ -470,11 +538,11 @@
         and write about the ideas, tools, and problems I encounter along the way.
       </p>
       <div class="social-links">
-        <a class="social-link" href="mailto:hanq@clarkson.edu">
+        <a class="social-link" href="mailto:quanghango1998@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
           </svg>
-          hanq@clarkson.edu
+          quanghango1998@gmail.com
         </a>
         <a class="social-link" href="https://scholar.google.com/citations?user=ZR65deoAAAAJ&hl=en" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -494,10 +562,16 @@
           LinkedIn
         </a>
       </div>
-      <a class="btn" href="#about">
-        Learn more
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+      <div class="hero-cta-row">
+        <a class="btn" href="#about">
+          Learn more
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-outline" href="resume.pdf" download>
+          Download CV
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        </a>
+      </div>
     </div>
 
     <div class="hero-plate">
@@ -655,6 +729,27 @@
     </svg>
   </div>
 
+  <!-- TODO: điền danh sách công bố khoa học thật vào đây, thay cho ghi chú placeholder này -->
+  <section id="publications" class="reveal">
+    <p class="section-eyebrow">Selected Works</p>
+    <h2>Publications</h2>
+    <div class="section-rule"></div>
+    <div class="entry">
+      <!-- Ví dụ khuôn mẫu 1 bài — nhân bản khối .pub-entry này cho từng bài công bố thật -->
+      <div class="pub-entry">
+        <p class="pub-title">[Tên bài báo — thay bằng tiêu đề thật]</p>
+        <p class="pub-meta">Q.-H. Ngo, et al. — [Tên hội nghị/tạp chí, năm] · <a href="#" class="pub-link">DOI / Link</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="diagram-divider">
+    <svg viewBox="0 0 900 14" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="7" x2="900" y2="7" stroke="#14171C" stroke-opacity="0.14" stroke-width="1"/>
+      <circle cx="450" cy="7" r="3" fill="#B3402F"/>
+    </svg>
+  </div>
+
   <section id="contact" class="reveal">
     <p class="section-eyebrow">Get in Touch</p>
     <h2>Contact</h2>
@@ -664,11 +759,11 @@
       or just swapping notes on interesting engineering problems.
     </p>
     <div class="social-links">
-      <a class="social-link" href="mailto:hanq@clarkson.edu">
+      <a class="social-link" href="mailto:quanghango1998@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
         </svg>
-        hanq@clarkson.edu
+        quanghango1998@gmail.com
       </a>
       <a class="social-link" href="tel:+19843792274">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -695,9 +790,13 @@
     <div class="footer-links">
       <a href="#about">About</a>
       <a href="blog.html">Blog</a>
-      <a href="mailto:hanq@clarkson.edu">Email</a>
+      <a href="mailto:quanghango1998@gmail.com">Email</a>
     </div>
   </footer>
+
+  <button id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -712,6 +811,35 @@
       });
     }, { threshold: 0.15 });
     revealEls.forEach(el => observer.observe(el));
+
+    // ---------- Scrollspy: highlight nav link for section in view ----------
+    const navAnchors = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const spySections = navAnchors
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    function updateActiveNav() {
+      let current = null;
+      spySections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= 120) current = sec;
+      });
+      navAnchors.forEach(a => {
+        const target = document.querySelector(a.getAttribute('href'));
+        a.classList.toggle('active', target === current);
+      });
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    // ---------- Back to top button ----------
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      backToTop.classList.toggle('visible', window.scrollY > 480);
+    }, { passive: true });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   });
 </script>
 
