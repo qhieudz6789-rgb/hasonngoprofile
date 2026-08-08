@@ -218,16 +218,6 @@
     .btn svg { width: 14px; height: 14px; transition: transform 0.2s; }
     .btn:hover svg { transform: translateX(3px); }
 
-    .hero-cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--navy);
-      border: 1px solid var(--navy);
-    }
-    .btn-outline:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .btn-outline:hover svg { transform: translateY(2px); }
-
     /* Hero photo — drafting plate frame */
     .hero-plate {
       position: relative;
@@ -432,14 +422,6 @@
 
     .entry ul li strong { color: var(--ink); font-weight: 600; }
 
-    /* ---------- Publications ---------- */
-    .pub-entry { padding: 0.9rem 0; border-bottom: 1px solid var(--line-soft); }
-    .pub-entry:last-child { border-bottom: none; }
-    .pub-title { font-size: 0.96rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
-    .pub-meta { font-size: 0.86rem; color: var(--ink-dim); }
-    .pub-link { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--navy); }
-    .pub-link:hover { color: var(--redline); border-color: var(--redline); }
-
     /* ---------- Footer ---------- */
     footer {
       border-top: 1px solid var(--line);
@@ -493,7 +475,7 @@
 
     /* ---------- Print ---------- */
     @media print {
-      nav, #back-to-top, .btn, .hero-cta-row a { display: none !important; }
+      nav, #back-to-top, .btn { display: none !important; }
       .hero { min-height: auto; padding-top: 20px; }
       section { padding: 1.2rem 0; max-width: 100%; }
       .diagram-divider { display: none; }
@@ -562,16 +544,10 @@
           LinkedIn
         </a>
       </div>
-      <div class="hero-cta-row">
-        <a class="btn" href="#about">
-          Learn more
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-outline" href="resume.pdf" download>
-          Download CV
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
-        </a>
-      </div>
+      <a class="btn" href="#about">
+        Learn more
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
 
     <div class="hero-plate">
@@ -719,27 +695,6 @@
         <li>Participating in a <strong>Clarkson-sponsored</strong> project titled "Green-Energy Powered Autonomous Driving Pod (ADP) On-Campus Demonstration," designing a combined solar and wind powered charging station for autonomous vehicles and a hardware-in-the-loop integration for grid impact studies.</li>
         <li>Set up a cyber communication network using ns-3 and collaborated with colleagues to integrate a load-sharing controller and a real-time simulator, evaluating the combined impact of physical faults and cyber attacks (Denial of Service, Man-in-the-Middle, and False Data Injection Attacks) on hardware-in-the-loop (HIL) testbeds.</li>
       </ul>
-    </div>
-  </section>
-
-  <div class="diagram-divider">
-    <svg viewBox="0 0 900 14" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="7" x2="900" y2="7" stroke="#14171C" stroke-opacity="0.14" stroke-width="1"/>
-      <circle cx="450" cy="7" r="3" fill="#B3402F"/>
-    </svg>
-  </div>
-
-  <!-- TODO: điền danh sách công bố khoa học thật vào đây, thay cho ghi chú placeholder này -->
-  <section id="publications" class="reveal">
-    <p class="section-eyebrow">Selected Works</p>
-    <h2>Publications</h2>
-    <div class="section-rule"></div>
-    <div class="entry">
-      <!-- Ví dụ khuôn mẫu 1 bài — nhân bản khối .pub-entry này cho từng bài công bố thật -->
-      <div class="pub-entry">
-        <p class="pub-title">[Tên bài báo — thay bằng tiêu đề thật]</p>
-        <p class="pub-meta">Q.-H. Ngo, et al. — [Tên hội nghị/tạp chí, năm] · <a href="#" class="pub-link">DOI / Link</a></p>
-      </div>
     </div>
   </section>
 
