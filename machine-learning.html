@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Automating PSCAD Harmonic Scans with Python — Quang-Ha (Hanson) Ngo</title>
+  <title>Machine Learning — Quang-Ha (Hanson) Ngo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
@@ -61,9 +61,9 @@
     .nav-links a.active { color: var(--text); font-weight: 500; }
 
     .post-header {
-      padding: 8rem 3rem 2rem;
-      max-width: 760px;
-      margin: 0 auto;
+      padding: 0 0 2rem;
+      max-width: 100%;
+      margin: 0;
     }
 
     .back-link {
@@ -108,14 +108,98 @@
     hr.divider {
       border: none;
       border-top: 1px solid #000;
-      max-width: 760px;
-      margin: 2rem auto;
+      max-width: 100%;
+      margin: 0 0 2rem;
+    }
+
+    /* ---------- Post layout: sidebar + content ---------- */
+    .post-layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 8rem 3rem 4rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .post-main { min-width: 0; }
+
+    .post-sidebar {
+      position: sticky;
+      top: 90px;
+      align-self: start;
+    }
+
+    .post-sidebar-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .post-toc {
+      list-style: none;
+      border-left: 2px solid var(--bg-subtle);
+    }
+
+    .post-toc a {
+      display: block;
+      padding: 0.42rem 0 0.42rem 0.9rem;
+      margin-left: -2px;
+      border-left: 2px solid transparent;
+      font-size: 0.83rem;
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .post-toc a.sub { padding-left: 1.7rem; font-size: 0.8rem; }
+
+    .post-toc a:hover { color: var(--navy); }
+
+    .post-toc a.active {
+      color: var(--navy);
+      border-left-color: var(--navy);
+      font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .post-layout {
+        grid-template-columns: 1fr;
+        padding: 7rem 1.5rem 3rem;
+      }
+      .post-sidebar {
+        position: static;
+        order: -1;
+        margin-bottom: 2rem;
+      }
+      .post-toc {
+        display: flex;
+        overflow-x: auto;
+        border-left: none;
+        gap: 2px;
+        padding-bottom: 8px;
+      }
+      .post-toc li { flex: 0 0 auto; }
+      .post-toc a {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        white-space: nowrap;
+        padding: 0.4rem 0.8rem;
+        margin-left: 0;
+      }
+      .post-toc a.sub { padding-left: 0.8rem; }
+      .post-toc a.active { border-bottom-color: var(--navy); border-left-color: transparent; }
     }
 
     .post-body {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 3rem 4rem;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
       font-size: 1rem;
       color: var(--text);
     }
@@ -168,8 +252,6 @@
     @media (max-width: 640px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1.25rem; }
-      .post-header { padding: 7rem 1.5rem 2rem; }
-      .post-body { padding: 0 1.5rem 3rem; }
       footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -179,60 +261,78 @@
   <nav>
     <ul class="nav-links">
       <li><a href="index.html">About</a></li>
-      <li><a href="index.html#expertise">Expertise</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li><a href="blog.html" class="active">Blog</a></li>
     </ul>
   </nav>
 
-  <div class="post-header">
-    <a class="back-link" href="blog.html">← Back to Blog</a>
-    <div class="post-meta">Aug 2026</div>
-    <h1>Machine Learning</h1>
-    <span class="post-tag">	Data Warehouse</span>
-  </div>
+  <div class="post-layout">
+    <aside class="post-sidebar">
+      <p class="post-sidebar-title">On this page</p>
+      <ul class="post-toc" id="post-toc">
+        <li><a href="#ml-definition">Definition</a></li>
+        <li><a href="#ml-examples" class="sub">Examples & use cases</a></li>
+        <li><a href="#ml-how-it-works">How it works</a></li>
+        <li><a href="#ml-types">Types of ML</a></li>
+        <li><a href="#ml-supervised" class="sub">1. Supervised</a></li>
+        <li><a href="#ml-unsupervised" class="sub">2. Unsupervised</a></li>
+        <li><a href="#ml-semi-supervised" class="sub">3. Semi-supervised</a></li>
+        <li><a href="#ml-reinforcement" class="sub">4. Reinforcement</a></li>
+        <li><a href="#ml-benefits">Benefits & risks</a></li>
+        <li><a href="#ml-resources">Free resources</a></li>
+      </ul>
+    </aside>
 
-  <hr class="divider">
+    <div class="post-main">
+      <div class="post-header">
+        <a class="back-link" href="blog.html">← Back to Blog</a>
+        <div class="post-meta">Aug 2026</div>
+        <h1>Machine Learning</h1>
+        <span class="post-tag">Machine Learning</span>
+      </div>
 
-  <div class="post-body">
+      <hr class="divider">
 
-    <h2>Machine learning definition</h2>
+      <div class="post-body">
+
+        <h2 id="ml-definition">Machine learning definition</h2>
     <p>
       Machine learning is a subfield of artificial intelligence (AI) that uses algorithms trained on data sets to create self-learning models capable of predicting outcomes and classifying information without human intervention. Machine learning is used today for a wide range of commercial purposes, including suggesting products to consumers based on their past purchases, predicting stock market fluctuations, and translating text from one language to another.
     </p>
-    <h3>Examples and use cases</h3>
+    <h3 id="ml-examples">Examples and use cases</h3>
     <p>Machine learning is typically the most mainstream type of AI technology in use today. Some of the most common examples of machine learning that you may have interacted with in your day-to-day life include:</p>
     <ul>
       <li>Recommendation engines that suggest products, songs, or television shows to you, such as those found on Amazon, Spotify, or Netflix. </li>
       <li>Speech recognition software that allows you to convert voice memos into text.</li>
-      <li>A bank’s fraud detection services automatically flag suspicious transactions. </li>
+      <li>A bank's fraud detection services automatically flag suspicious transactions. </li>
       <li>Self-driving cars and driver assistance features, such as blind-spot detection and automatic stopping, to improve overall vehicle safety. </li>
+    </ul>
 
-    <h2>How does machine learning work? </h2>
+    <h2 id="ml-how-it-works">How does machine learning work?</h2>
 
     <p>Machine learning is both simple and complex. </p>
       
-    <p> At its core, the method simply uses algorithms – essentially lists of rules – adjusted and refined using past data sets to make predictions and categorizations when confronted with new data. For example, a machine learning algorithm may be “trained” on a data set consisting of thousands of images of flowers that are labeled with each of their different flower types so that it can then correctly identify a flower in a new photograph based on the differentiating characteristics it learned from other pictures. </p>
+    <p> At its core, the method simply uses algorithms – essentially lists of rules – adjusted and refined using past data sets to make predictions and categorizations when confronted with new data. For example, a machine learning algorithm may be "trained" on a data set consisting of thousands of images of flowers that are labeled with each of their different flower types so that it can then correctly identify a flower in a new photograph based on the differentiating characteristics it learned from other pictures. </p>
       
-    <p>To ensure such algorithms work effectively, however, they must typically be refined many times until they accumulate a comprehensive list of instructions that allow them to function correctly. Algorithms that have been trained sufficiently eventually become “machine learning models,” which are essentially algorithms that have been trained to perform specific tasks like sorting images, predicting housing prices, or making chess moves. In some cases, algorithms are layered on top of each other to create complex networks that allow them to do increasingly complex, nuanced tasks like generating text and powering chatbots via a method known as “deep learning.”</p>
+    <p>To ensure such algorithms work effectively, however, they must typically be refined many times until they accumulate a comprehensive list of instructions that allow them to function correctly. Algorithms that have been trained sufficiently eventually become "machine learning models," which are essentially algorithms that have been trained to perform specific tasks like sorting images, predicting housing prices, or making chess moves. In some cases, algorithms are layered on top of each other to create complex networks that allow them to do increasingly complex, nuanced tasks like generating text and powering chatbots via a method known as "deep learning."</p>
       
     <p>As a result, although the general principles underlying machine learning are relatively straightforward, the models that are produced at the end of the process can be very elaborate and complex.</p>
 
-    
-
-    <h2>Types of machine learning </h2>
+    <h2 id="ml-types">Types of machine learning</h2>
     <p>Several different types of machine learning power the many different digital goods and services we use every day. While each of these different types attempts to accomplish similar goals – to create machines and applications that can act without human intervention – the precise methods they use differ somewhat.</p>
       
-    <p>To help you get a better idea of how these types differ from one another, here’s an overview of the four different types of machine learning primarily in use today. </p>
-    <h3>1. Supervised machine learning</h3>
-    <p>In supervised learning, algorithms are trained on labeled data sets that include tags describing each piece of data. In other words, the algorithms are fed data that includes an “answer key” describing how it should be interpreted. For example, an algorithm may be fed images of flowers that include tags for each flower type so that it will be able to identify the flower better again when fed a new photograph.</p>
+    <p>To help you get a better idea of how these types differ from one another, here's an overview of the four different types of machine learning primarily in use today. </p>
+
+
+    <h3 id="ml-supervised">1. Supervised machine learning</h3>
+    <p>In supervised learning, algorithms are trained on labeled data sets that include tags describing each piece of data. In other words, the algorithms are fed data that includes an "answer key" describing how it should be interpreted. For example, an algorithm may be fed images of flowers that include tags for each flower type so that it will be able to identify the flower better again when fed a new photograph.</p>
       
     <p>Supervised learning is often used to create machine learning models used for prediction and classification purposes.</p>
-    <h3>2. Unsupervised machine learning</h3>
+    <h3 id="ml-unsupervised">2. Unsupervised machine learning</h3>
     <p>Unsupervised learning uses unlabeled data sets to train algorithms. In this process, the algorithm is fed data that doesn't include tags, which requires it to uncover patterns on its own without any outside guidance. For instance, an algorithm may be fed a large amount of unlabeled user data culled from a social media site in order to identify behavioral trends on the platform.</p> 
       
     <p>Unsupervised machine learning is often used by researchers and data scientists to identify patterns within large, unlabeled data sets quickly and efficiently.</p>
-    <h3>3. Semi-supervised machine learning</h3>
+    <h3 id="ml-semi-supervised">3. Semi-supervised machine learning</h3>
     <p>Semi-supervised learning uses both unlabeled and labeled data sets to train algorithms. Generally, during semi-supervised learning, algorithms are first fed a small amount of labeled data to help direct their development and then fed much larger quantities of unlabeled data to complete the model. For example, an algorithm may be fed a smaller quantity of labeled speech data and then trained on a much larger set of unlabeled speech data in order to create a model capable of speech recognition.</p>
       
     <p>Semi-supervised learning is often employed to train algorithms for classification and prediction purposes when large volumes of labeled data are unavailable.</p>
@@ -245,35 +345,59 @@
         allowfullscreen>
       </iframe>
     </div>
-    <h3>4. Reinforcement learning </h3>
+    <h3 id="ml-reinforcement">4. Reinforcement learning</h3>
     <p>Reinforcement learning uses trial and error to train algorithms and create models. During the training process, algorithms operate in specific environments and then are provided with feedback following each outcome. Much like how a child learns, the algorithm slowly begins to acquire an understanding of its environment and begins to optimize actions to achieve particular outcomes. For instance, an algorithm may be optimized by playing successive games of chess, which allows it to learn from its past successes and failures playing each game.</p>
       
     <p>Reinforcement learning is often used to create algorithms that must effectively make sequences of decisions or actions to achieve their aims, such as playing a game or summarizing an entire text. </p>
-    <h2>Machine learning benefits and risks </h2>
+    <h2 id="ml-benefits">Machine learning benefits and risks</h2>
     <p>Machine learning is already transforming much of our world for the better. Today, the method is used to construct models capable of identifying cancer growths in medical scans, detecting fraudulent transactions, and even helping people learn languages. But, as with any new society-transforming technology, there are also potential dangers to know about.</p>
       
     <p>At a glance, here are some of the major benefits and potential drawbacks of machine learning:</p>
-    <h2>Build your machine learning and AI skills with free resources</h2>
+    <h2 id="ml-resources">Build your machine learning and AI skills</h2>
     <p>Whether you want to become a machine learning engineer or just want to learn machine learning to boost your productivity at work, check out some of these resources:</p>
     <ul>
-      <li>Watch our video on YouTube: Your Machine Learning Roadmap</l1>
-      <li>Read our career guide: Machine Learning Roadmap</l1>
-      <li>Read an interview with an AI Instructor: The AI Advantage: 9 Questions to Unlock Your Potential</l1>
+      <li>Watch our video on YouTube: Your Machine Learning Roadmap</li>
+      <li>Read our career guide: Machine Learning Roadmap</li>
+      <li>Read an interview with an AI Instructor: The AI Advantage: 9 Questions to Unlock Your Potential</li>
     </ul>
     <p>
-      Whether you want to develop a new skill, get comfortable with an in-demand technology, or advance your abilities, keep growing with a Coursera Plus subscription. You’ll get access to over 10,000 flexible courses.
+      Whether you want to develop a new skill, get comfortable with an in-demand technology, or advance your abilities, keep growing with a Coursera Plus subscription. You'll get access to over 10,000 flexible courses.
     </p>
+      </div>
+    </div>
   </div>
 
   <footer>
     <span class="footer-left">© 2026 Quang-Ha (Hanson) Ngo</span>
     <div class="footer-links">
       <a href="index.html">About</a>
-      <a href="index.html#expertise">Expertise</a>
       <a href="blog.html">Blog</a>
       <a href="mailto:quanghango1998@gmail.com">Email</a>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // ---------- Sidebar scrollspy ----------
+      const tocLinks = Array.from(document.querySelectorAll('#post-toc a'));
+      const tocSections = tocLinks
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+
+      function updateActiveToc() {
+        let current = null;
+        tocSections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 140) current = sec;
+        });
+        tocLinks.forEach(a => {
+          const target = document.querySelector(a.getAttribute('href'));
+          a.classList.toggle('active', target === current);
+        });
+      }
+      window.addEventListener('scroll', updateActiveToc, { passive: true });
+      updateActiveToc();
+    });
+  </script>
 
 </body>
 </html>
